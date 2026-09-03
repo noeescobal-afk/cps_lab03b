@@ -1,19 +1,14 @@
 package pe.edu.tecsup.lab03.service;
 
-import pe.edu.tecsup.lab03.repository.StudentRepository;
-import java.util.List;
+import pe.edu.tecsup.lab03.repositories.StudentRepository;
 
 public class StudentService {
+
     private final StudentRepository repository = new StudentRepository();
 
-    public void addStudent(String studentName) {
-        if (studentName == null || studentName.isBlank()) {
-            throw new IllegalArgumentException("El nombre del estudiante no puede estar vacío.");
-        }
-        repository.save(studentName);
-    }
-
-    public List<String> getAllStudents() {
-        return repository.findAll();
+    // Método principal del Service
+    public void registerStudent(String name) {
+        System.out.println("Procesando registro en StudentService para: " + name);
+        repository.save(name);
     }
 }
