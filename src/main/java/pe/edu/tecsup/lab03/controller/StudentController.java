@@ -10,4 +10,13 @@ public class StudentController {
         System.out.println("Procesando registro en StudentController para: " + name);
         service.registerStudent(name);
     }
+
+    public boolean validateAndRegister(String name) {
+        if (name == null || name.isEmpty()) {
+            System.out.println("Nombre invalido en StudentController");
+            return false;
+        }
+        registerStudent(name);
+        return true;
+    }
 }
